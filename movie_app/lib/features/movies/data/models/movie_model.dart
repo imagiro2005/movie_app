@@ -23,8 +23,11 @@ class MovieModel extends Movie {
       title: json['title'] as String? ?? json['name'] as String? ?? 'Untitled',
       overview: json['overview'] as String? ?? json['body'] as String? ?? '',
       posterUrl: poster,
-      voteAverage: (json['vote_average'] as num?)?.toDouble() ?? 8.5,
-      releaseDate: json['release_date'] as String? ?? '2024',
+      voteAverage: (json['vote_average'] as num?)?.toDouble() ??
+          (json['rating'] as num?)?.toDouble() ??
+          8.5,
+      releaseDate: json['release_date'] as String? ??
+          (json['year'] != null ? json['year'].toString() : '2024'),
     );
   }
 
