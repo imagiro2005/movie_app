@@ -1,6 +1,6 @@
 # BẢNG PHÂN CÔNG CÔNG VIỆC (WORK BREAKDOWN STRUCTURE - WBS)
 
-**Dự án:** Ứng dụng Phim ảnh CineStream — Clean Architecture & Dependency Injection (DI)  
+**Dự án:** Ứng dụng Phim ảnh PhePhim — Clean Architecture & Dependency Injection (DI)  
 **Môn học:** Lập trình Đa nền tảng  
 **Khoa:** Điện tử - Viễn thông — Trường Đại học Bách Khoa, Đại học Đà Nẵng  
 **Người hướng dẫn:** TS. Nguyễn Duy Nhật Viễn  
