@@ -18,9 +18,9 @@ def create_presentation():
                     p.font.bold = True
                     p.font.color.rgb = RGBColor(190, 15, 20)
             elif 'SVTH:' in text:
-                shape.text_frame.text = 'SVTH:\n1. Thành viên 1 (Trưởng nhóm)\n2. Thành viên 2'
+                shape.text_frame.text = 'Người hướng dẫn: TS. Nguyễn Duy Nhật Viễn\n\nSVTH:\n1. Thành viên 1 (Trưởng nhóm)\n2. Thành viên 2'
                 for p in shape.text_frame.paragraphs:
-                    p.font.size = Pt(16)
+                    p.font.size = Pt(15)
 
     # Slide 2: Nội dung
     slide2 = prs.slides[1]

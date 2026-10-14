@@ -2,7 +2,8 @@
 
 **Dự án:** Ứng dụng Phim ảnh CineStream — Clean Architecture & Dependency Injection (DI)  
 **Môn học:** Lập trình Đa nền tảng  
-**Khoa:** Điện tử và Trí tuệ Nhân tạo — Trường Đại học Bách Khoa, Đại học Đà Nẵng  
+**Khoa:** Điện tử - Viễn thông — Trường Đại học Bách Khoa, Đại học Đà Nẵng  
+**Người hướng dẫn:** TS. Nguyễn Duy Nhật Viễn  
 **Quy mô nhóm:** 2 Thành viên  
 
 ---

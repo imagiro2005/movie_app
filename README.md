@@ -2,7 +2,8 @@
 ## Chủ Đề 04: Kiến Trúc Ứng Dụng Flutter — Clean Architecture & Dependency Injection (DI)
 
 > **Trường Đại học Bách Khoa — Đại học Đà Nẵng**  
-> **Khoa Điện tử và Trí tuệ Nhân tạo**  
+> **Khoa Điện tử - Viễn thông**  
+> **Người hướng dẫn:** TS. Nguyễn Duy Nhật Viễn  
 > **Ứng dụng Demo:** CineStream Movie Explorer (REST API + Clean Architecture + BLoC + get_it/injectable)
 
 ---
