@@ -1,4 +1,4 @@
-# CineStream — Flutter Clean Architecture & Dependency Injection
+# PhePhim — Flutter Clean Architecture & Dependency Injection
 
 > **Môn học:** Lập trình Đa nền tảng  
 > **Trường Đại học Bách Khoa — Đại học Đà Nẵng (Khoa Điện tử - Viễn thông)**  
