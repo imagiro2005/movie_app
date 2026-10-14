@@ -7,9 +7,9 @@
 
 ---
 
-## 📌 Lộ trình phát triển dự án theo từng tuần (Weekly Roadmap)
+##  Lộ trình phát triển dự án theo từng tuần (Weekly Roadmap)
 
-- [x] **Tuần 1 (Tuần hiện tại - Foundation Milestone):**
+- [x] **Tuần 1 (Foundation Milestone):**
   - Xây dựng khung kiến trúc 3 lớp chuẩn: `Domain` (Pure Dart), `Data` (REST API), `Presentation` (BLoC).
   - Áp dụng nguyên lý đảo ngược phụ thuộc (DIP) và Repository Pattern.
   - Cấu hình Dependency Injection bằng Service Locator `get_it`.
@@ -26,7 +26,7 @@
 
 ---
 
-## 🏛️ Sơ đồ kiến trúc 3 lớp tuần 1
+##  Sơ đồ kiến trúc 3 lớp tuần 1
 
 ```mermaid
 graph TD
@@ -71,7 +71,7 @@ graph TD
 
 ---
 
-## 🔄 Luồng dữ liệu (Data Flow) khi người dùng mở ứng dụng
+##  Luồng dữ liệu (Data Flow) khi người dùng mở ứng dụng
 
 1. Người dùng mở ứng dụng → `MoviesPage` gửi sự kiện `MoviesRequested` vào `MoviesBloc`.
 2. `MoviesBloc` phát trạng thái `MoviesLoading` (UI hiển thị thanh chờ xoay vòng).
@@ -85,7 +85,7 @@ graph TD
 
 ---
 
-## 📁 Cấu trúc mã nguồn Tuần 1
+##  Cấu trúc mã nguồn Tuần 1
 
 ```text
 lib/
@@ -115,7 +115,7 @@ test/
 
 ---
 
-## 🚀 Hướng dẫn khởi chạy
+##  Hướng dẫn khởi chạy
 
 ### 1. Cài đặt các gói phụ thuộc
 ```bash
@@ -149,7 +149,7 @@ flutter test
 
 ---
 
-## 🎯 Minh chứng Tầng Presentation không phụ thuộc trực tiếp vào Data Source
+##  Minh chứng Tầng Presentation không phụ thuộc trực tiếp vào Data Source
 
 Trong file `test/features/movies/presentation/bloc/movies_bloc_test.dart`:
 ```dart
