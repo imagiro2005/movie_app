@@ -11,23 +11,31 @@ class MovieModel extends Movie {
   });
 
   factory MovieModel.fromJson(Map<String, dynamic> json) {
-    // Xử lý linh hoạt cho nhiều nguồn API (TMDB, JSONPlaceholder, Mock API)
-    final poster = json['poster_url'] as String? ??
+    final poster = json['posterurl'] as String? ??
+        json['poster_url'] as String? ??
         (json['poster_path'] != null
             ? 'https://image.tmdb.org/t/p/w500${json['poster_path']}'
             : null) ??
         'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=500';
 
+    final rawRating = json['imdbRating'] ?? json['vote_average'] ?? json['rating'];
+    final rating = (rawRating is num)
+        ? rawRating.toDouble()
+        : double.tryParse(rawRating?.toString() ?? '') ?? 8.0;
+
+    final rawDate = json['releaseDate'] ?? json['release_date'] ?? json['year'];
+    final dateStr = rawDate?.toString() ?? '2024';
+
     return MovieModel(
-      id: json['id'] as int? ?? 0,
+      id: int.tryParse(json['id']?.toString() ?? '0') ?? 0,
       title: json['title'] as String? ?? json['name'] as String? ?? 'Untitled',
-      overview: json['overview'] as String? ?? json['body'] as String? ?? '',
+      overview: json['storyline'] as String? ??
+          json['overview'] as String? ??
+          json['body'] as String? ??
+          '',
       posterUrl: poster,
-      voteAverage: (json['vote_average'] as num?)?.toDouble() ??
-          (json['rating'] as num?)?.toDouble() ??
-          8.5,
-      releaseDate: json['release_date'] as String? ??
-          (json['year'] != null ? json['year'].toString() : '2024'),
+      voteAverage: rating,
+      releaseDate: dateStr.length >= 4 ? dateStr.substring(0, 4) : dateStr,
     );
   }
 
