@@ -60,11 +60,6 @@ class MoviesPage extends StatelessWidget {
               context.read<MoviesBloc>().add(const MoviesRequested());
             },
           ),
-          IconButton(
-            tooltip: 'Giải thích Kiến trúc',
-            icon: const Icon(Icons.info_outline_rounded, color: Color(0xFFE50914)),
-            onPressed: () => _showArchitectureDialog(context),
-          ),
         ],
       ),
       body: BlocBuilder<MoviesBloc, MoviesState>(
@@ -285,100 +280,6 @@ class MoviesPage extends StatelessWidget {
           }
           return const SizedBox.shrink();
         },
-      ),
-    );
-  }
-
-  void _showArchitectureDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (_) => AlertDialog(
-        backgroundColor: Colors.white,
-        surfaceTintColor: Colors.transparent,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(18),
-        ),
-        title: const Row(
-          children: [
-            Icon(Icons.layers_rounded, color: Color(0xFFE50914)),
-            SizedBox(width: 10),
-            Text(
-              'Kiến trúc 3 Lớp & DIP',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: Color(0xFF1A202C),
-              ),
-            ),
-          ],
-        ),
-        content: const SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                '1. Presentation Layer (UI & BLoC):',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF2563EB),
-                ),
-              ),
-              Text(
-                '• MoviesPage & MoviesBloc.\n• Chỉ gửi Event và nhận State từ UseCase, không import Data Source.',
-                style: TextStyle(fontSize: 13, color: Color(0xFF4A5568), height: 1.4),
-              ),
-              SizedBox(height: 12),
-              Text(
-                '2. Domain Layer (Pure Dart):',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF16A34A),
-                ),
-              ),
-              Text(
-                '• Movie (Entity), GetMovies (UseCase).\n• MoviesRepository (Interface trừu tượng).\n• Độc lập hoàn toàn với Flutter UI và nguồn dữ liệu.',
-                style: TextStyle(fontSize: 13, color: Color(0xFF4A5568), height: 1.4),
-              ),
-              SizedBox(height: 12),
-              Text(
-                '3. Data Layer (DIP & REST API):',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFFEA580C),
-                ),
-              ),
-              Text(
-                '• MovieModel (JSON DTO), MoviesRemoteDataSource.\n• MoviesRepositoryImpl thực thi interface của Domain.',
-                style: TextStyle(fontSize: 13, color: Color(0xFF4A5568), height: 1.4),
-              ),
-              SizedBox(height: 12),
-              Text(
-                '4. Dependency Injection (DI):',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF9333EA),
-                ),
-              ),
-              Text(
-                '• Service Locator get_it đăng ký dependencies tại Composition Root (lib/core/di/injection.dart).',
-                style: TextStyle(fontSize: 13, color: Color(0xFF4A5568), height: 1.4),
-              ),
-            ],
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text(
-              'Đã hiểu',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Color(0xFFE50914),
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }

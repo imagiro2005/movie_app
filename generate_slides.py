@@ -678,7 +678,7 @@ def create_presentation():
         ("Thương hiệu PhePhim (Light Theme):", "Sử dụng tông màu sáng chủ đạo thanh lịch, nền trắng sữa, AppBar nổi bật, card phim bo góc mềm mại kèm hiệu ứng đổ bóng tinh tế."),
         ("Trình bày trực quan:", "Hiển thị poster chất lượng cao (Amazon CDN), badge điểm IMDb màu vàng sang trọng, năm phát hành và tóm tắt cốt truyện ngắn gọn."),
         ("Xử lý lỗi mất mạng (Error Recovery):", "Khi ngắt mạng, UI không bị crash mà hiển thị màn hình báo lỗi chuyên nghiệp với Icon cảnh báo và nút 'Thử lại' (Retry) để người dùng tải lại khi có mạng."),
-        ("Hộp thoại kiến trúc (Architecture Dialog):", "Tích hợp sẵn Dialog giải thích cấu trúc 3 tầng Clean Architecture ngay trên AppBar giúp giảng viên dễ dàng kiểm tra trực tiếp.")
+        ("Tương tác làm mới (Refresh Action):", "Tích hợp nút làm mới trên AppBar và cơ chế Pull-to-Refresh, gửi sự kiện MoviesRequested để cập nhật lại danh sách phim bất cứ lúc nào.")
     ]
     for h, b in ui_details:
         p1 = tf_u.add_paragraph()
@@ -847,7 +847,7 @@ def create_presentation():
     items_g2 = [
         "• Đổi mới giao diện theo phong cách Light Theme thanh lịch, tên ứng dụng: PhePhim.",
         "• Card phim bo góc hiện đại, poster sắc nét kèm huy hiệu điểm IMDb vàng sang trọng.",
-        "• Dialog kiến trúc Clean Architecture hiển thị trực tiếp cấu trúc các tầng trên app.",
+        "• Tích hợp cử chỉ kéo để làm mới (Pull-to-Refresh) và nút làm mới dữ liệu nhanh chóng trên AppBar.",
         "• Bố cục giao diện hiển thị mượt mà trên cả trình duyệt Web, Mobile và Desktop."
     ]
     for it in items_g2:
@@ -1012,8 +1012,13 @@ def create_presentation():
 
     # Save presentation
     output_path = 'BaoCao_Chude04_CleanArchitecture_DI.pptx'
-    prs.save(output_path)
-    print(f"Presentation generated successfully: {output_path}")
+    try:
+        prs.save(output_path)
+        print(f"Presentation generated successfully: {output_path}")
+    except PermissionError:
+        fallback_path = 'BaoCao_Chude04_CleanArchitecture_DI_v2.pptx'
+        prs.save(fallback_path)
+        print(f"File đang mở trong PowerPoint. Đã lưu bản cập nhật tại: {fallback_path}")
 
 if __name__ == '__main__':
     create_presentation()
